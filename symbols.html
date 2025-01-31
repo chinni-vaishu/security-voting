@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Machine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            margin-top: 20px;
+            color: #2d3a75;
+        }
+        table {
+            width: 90%;
+            max-width: 600px;
+            border-collapse: collapse;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 4px 10px #fff(244, 242, 242, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+        }
+        th {
+            background-color: #2d3a75;
+            color: white;
+        }
+        td img {
+            width: 40px;
+            height: 40px;
+        }
+        td button {
+            background-color: #2d3a75;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        td button:hover {
+            background-color: #1e2957;
+        }
+        .btn-view-results {
+            background-color: #2d3a75;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        .btn-view-results:hover {
+            background-color: #1e2957;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Voting Machine</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Candidate Name</th>
+                <th>Symbol</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Candidate A</td>
+                <td><img src="symbol 1.jpg" alt="Symbol 1"></td>
+                <td><button onclick="vote('Candidate A')">Vote</button></td>
+            </tr>
+            <tr>
+                <td>Candidate B</td>
+                <td><img src="symbol 2.jpg" alt="Symbol 2"></td>
+                <td><button onclick="vote('Candidate B')">Vote</button></td>
+            </tr>
+            <tr>
+                <td>Candidate C</td>
+                <td><img src="symbol 3.jpg" alt="Symbol 3"></td>
+                <td><button onclick="vote('Candidate C')">Vote</button></td>
+            </tr>
+            <tr>
+                <td>Candidate D</td>
+                <td><img src="symbol 4.jpg" alt="Symbol 4"></td>
+                <td><button onclick="vote('Candidate D')">Vote</button></td>
+            </tr>
+            <tr>
+                <td>Candidate E</td>
+                <td><img src="symbol 5.jpg" alt="Symbol 5"></td>
+                <td><button onclick="vote('Candidate E')">Vote</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="result.html" class="btn-view-results">View Voting Results</a>
+
+    <script>
+        function vote(candidate) {
+            // Get the current vote count from localStorage or initialize to 0
+            let voteCount = localStorage.getItem(candidate);
+            voteCount = voteCount ? parseInt(voteCount) : 0;
+            voteCount++;
+
+            // Store the updated vote count in localStorage
+            localStorage.setItem(candidate, voteCount);
+
+            alert(`You have successfully voted for ${candidate}`);
+        }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
